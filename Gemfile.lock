@@ -1,0 +1,29 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    coderay (1.1.0)
+    cool.io (1.2.4)
+    jubatus (0.8.0)
+      msgpack-rpc (~> 0.5.1)
+    method_source (0.8.2)
+    msgpack (0.5.12)
+    msgpack-rpc (0.5.3)
+      cool.io (~> 1.2.4)
+      msgpack (~> 0.5.10)
+    parallel (1.6.1)
+    pry (0.10.1)
+      coderay (~> 1.1.0)
+      method_source (~> 0.8.1)
+      slop (~> 3.4)
+    slop (3.6.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  jubatus
+  parallel
+  pry
+
+BUNDLED WITH
+   1.10.6
