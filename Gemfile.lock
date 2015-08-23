@@ -3,6 +3,7 @@ GEM
   specs:
     coderay (1.1.0)
     cool.io (1.2.4)
+    ffi (1.9.10)
     jubatus (0.8.0)
       msgpack-rpc (~> 0.5.1)
     method_source (0.8.2)
@@ -10,6 +11,8 @@ GEM
     msgpack-rpc (0.5.3)
       cool.io (~> 1.2.4)
       msgpack (~> 0.5.10)
+    natto (1.0.1)
+      ffi (>= 1.9.0)
     parallel (1.6.1)
     pry (0.10.1)
       coderay (~> 1.1.0)
@@ -22,6 +25,7 @@ PLATFORMS
 
 DEPENDENCIES
   jubatus
+  natto
   parallel
   pry
 

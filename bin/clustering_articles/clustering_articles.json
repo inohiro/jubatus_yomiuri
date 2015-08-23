@@ -1,0 +1,32 @@
+{
+  "method" : "kmeans",
+  "parameter" : {
+    "k" : 7,
+    "compressor_method" : "compressive_kmeans",
+    "bucket_size" : 1000,
+    "compressed_bucket_size" : 100,
+    "bicriteria_base_size" : 10,
+    "bucket_length" : 2,
+    "forgetting_factor" : 0.0,
+    "forgetting_threshold" : 0.5
+  },
+  "converter" : {
+    "string_filter_types" : {},
+    "string_filter_rules" : [],
+    "string_types" : {
+      "bigram": { "method": "ngram", "char_num": "2" },
+      "mecab": { "method": "dynamic", "path": "libmecab_splitter.so", "function": "create" },
+      "mecab_neologd": {
+        "method": "dynamic", "path": "libmecab_splitter.so", "function": "create",
+        "arg": "-d /opt/jubatus/lib/mecab/dic/mecab-ipadic-neologd"
+      }
+    },
+    "string_rules" : [
+      { "key" : "*", "type" : "mecab", "sample_weight" : "tf", "global_weight" : "idf" }
+    ],
+    "num_types" : {},
+    "num_rules" : [
+      { "key" : "*", "type" : "num" }
+    ]
+  }
+}

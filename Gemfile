@@ -5,3 +5,4 @@ gem 'parallel'
 
 gem 'pry'
 gem 'jubatus'
+gem 'natto'

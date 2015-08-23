@@ -12,7 +12,8 @@
       }
     },
     "string_rules": [
-      { "key": "*", "type": "mecab", "sample_weight": "tf", "global_weight": "idf" }
+      { "key": "article", "type": "mecab", "sample_weight": "tf", "global_weight": "idf" },
+      { "key": "title", "type": "bigram", "sample_weight": "bin", "global_weight": "bin" }
     ]
   },
   "parameter": {

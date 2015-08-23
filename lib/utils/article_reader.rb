@@ -15,6 +15,10 @@ module Utils
       .sort_by{rand}
     end
 
+    def find_article_by_id(id)
+      @articles.select {|article| article.id == id}.first
+    end
+
     def articles_path
       case RUBY_PLATFORM
       when /linux/
@@ -36,6 +40,12 @@ module Utils
       end
     end
     alias :titles :head_lines
+
+    def joined_articles
+      @joined_articles ||= Parallel.map(@articles, in_threads:8) do |article|
+        article.articles.join('。')
+      end
+    end
 
     def genre1s
       @genre1s ||= Parallel.map(@articles, in_threads: 8) do |article|
