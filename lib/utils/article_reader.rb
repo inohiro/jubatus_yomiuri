@@ -1,5 +1,6 @@
 require 'parallel'
 require 'json'
+require 'nkf'
 
 module Utils
   class ArticleReader

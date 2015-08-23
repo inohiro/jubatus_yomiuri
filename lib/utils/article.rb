@@ -21,7 +21,7 @@ module Utils
     end
 
     def articles
-      @articles ||= @entry['article'].map {|entry| entry.gsub('　', '') }
+      @articles ||= @entry['article'].map {|entry| cleanse(entry.gsub('　', '')) }
     end
 
     def genres
@@ -34,6 +34,12 @@ module Utils
 
     def genre2
       @genre2 ||= @entry['Genre1']
+    end
+
+    private
+
+    def cleanse(str)
+      NKF.nkf('-m0Z1', str)
     end
 
   end

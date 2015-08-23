@@ -1,17 +1,18 @@
 {
   "method": "AROW",
   "converter": {
-    "num_filter_types": {},
-    "num_filter_rules": [],
     "string_filter_types": {},
     "string_filter_rules": [],
-    "num_types": {},
-    "num_rules": [],
     "string_types": {
-      "bigram": { "method": "ngram", "char_num": "2" }
+      "bigram": { "method": "ngram", "char_num": "2" },
+      "mecab": { "method": "dynamic", "path": "libmecab_splitter.so", "function": "create" },
+      "mecab_neologd": {
+        "method": "dynamic", "path": "libmecab_splitter.so", "function": "create",
+        "arg": "-d /opt/jubatus/lib/mecab/dic/mecab-ipadic-neologd"
+      }
     },
     "string_rules": [
-      { "key": "*", "type": "bigram", "sample_weight": "bin", "global_weight": "bin" }
+      { "key": "*", "type": "mecab", "sample_weight": "tf", "global_weight": "idf" }
     ]
   },
   "parameter": {
